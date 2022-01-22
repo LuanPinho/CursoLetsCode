@@ -1,2 +1,2 @@
 # CursoLetsCode
- Arquivos do curso da Let's Code
+ Arquivos do curso da Let's Code - HTML e CSS
