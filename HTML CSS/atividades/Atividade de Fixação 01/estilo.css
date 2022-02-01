@@ -25,7 +25,6 @@
     padding-top: 45px;
     padding-bottom: 20px;
     width: 100%;
-    background-color: cyan;
 }
 .dados{
     display: flex;
@@ -45,20 +44,25 @@
     box-shadow:  2px 2px 5px 1px  rgb(97, 97, 97);
 }
 .itens-caixa-dados{
+    display: flex;
+    flex-direction: column;
     margin:  5px;
     font-family: 'Times New Roman', Times, serif;
     color: black;
+}
+.itens-caixa-dados table{
+    width:110%;
+    
 }
 .itens-caixa-dados a{
     color: black;
     font-size: 17px;
 }
-.itens-caixa-dados tr{
-    font-size: 17px;
-    border: 5px;
-}
 .itens-caixa-dados ul{
     padding-left: 5%;
+}
+.grid01{
+    
 }
 body{   
     margin: 0;
