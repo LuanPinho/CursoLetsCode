@@ -79,6 +79,7 @@
     justify-content: space-around;
 }
 .itens-caixa-dados p{
+    font-size: 18px;
     width: 96%;
     text-align: justify;
     margin-left: auto;
@@ -107,7 +108,7 @@
 body{   
     margin: 0;
     box-sizing: border-box;
-    height: 900px;
+    
     background-color: rgb(236, 236, 236);
 
 }
