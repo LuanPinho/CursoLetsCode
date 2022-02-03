@@ -93,8 +93,9 @@ main > .sec01{
     text-shadow: 2px 3px 6px #5e5e5eec;
 }
 .sec01 p{
-    max-width: 550px;
-    padding-left: 5%;
+    max-width: 600px;
+    
+    padding-right: 20px;
 }
 footer{
     height: 30px;
@@ -129,6 +130,7 @@ footer{
     main > .sec01 h3{
         font-size: 12px;
     }
+}
 @media(max-width:500px){
     nav{
         flex-direction: row;
@@ -136,6 +138,7 @@ footer{
         align-items: center;
         justify-content: space-around;
     }
+
     nav > ul{
         display: grid;
         position: relative;
@@ -144,6 +147,7 @@ footer{
         padding: 0px 0px 0px 0px;
         margin-left: 3%;
     }
+
     nav h1{
         margin: 0;
         padding-left: 5%;
@@ -151,19 +155,14 @@ footer{
     }
     nav > ul> li{
         font-size: 12px;
-        
-       
-        margin: 0px 0px 0px 15px;
-        
-
-        
-        
+        margin: 0px 0px 0px 15px;  
     }
+
     main{
         padding-top: 90px;
     }
+
     main > section{
         height: 300px;
     }
-
 }
