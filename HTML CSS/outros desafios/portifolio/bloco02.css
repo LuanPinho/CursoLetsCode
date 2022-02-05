@@ -1,0 +1,10 @@
+.bloco02{
+    display: grid;
+    columns: auto;
+    align-content: center;
+    justify-content: center;
+    background-color: chartreuse;
+}
+.bloco02 div{
+    background-color: chocolate;
+}
