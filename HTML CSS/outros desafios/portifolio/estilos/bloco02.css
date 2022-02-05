@@ -1,0 +1,40 @@
+.bloco02{
+    height: auto;
+    padding-bottom: 5vh;
+    padding-top: 5vh;
+
+    background-image: url(../imagens/bloco02.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: var(--cor2);;
+}
+.bloco02-div{   
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2vw;
+    height: 400px;
+    padding-top: 4vh;
+    padding-bottom: 2vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+.bloco02-div article{   
+    background-color: antiquewhite;
+    border-radius: 20px;
+    width: 350px;
+}
+.bloco02-div h2{
+    text-align: center;
+}
+.bloco02 h1{
+    text-align: center;
+    font-family: var(--font1);
+}
+@media(max-width:600px) {
+
+    .bloco02-div{   
+      
+        grid-template-columns: 1fr;
+    }
+}

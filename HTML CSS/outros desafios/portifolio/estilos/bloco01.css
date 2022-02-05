@@ -4,26 +4,28 @@
     flex-direction: column;
     justify-content: center;
     align-items: left;
-    background-image: linear-gradient( to right, var(--cor4t), var(--cor5t)),url(imagens/imagem01.jpg);
+    background-image: linear-gradient( to right, var(--cor4t) , var(--cor5t)),url(../imagens/bloco01.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: right;
     padding-left: 8%;
+
+    color: var(--cor2);
+    text-shadow: 3px 2px 2px #000000;
 }
 .bloco01 h1{
+    color: #ff6400;
     font-size: 70px;
-    text-shadow: 2px 3px 6px #5e5e5eec;
-}
-.bloco01 h3{
-    text-shadow: 2px 3px 6px #5e5e5eec;
 }
 .bloco01 p{
     padding-right: 5%;
+    max-width: 500px;
 }
     
 @media(max-width:600px) {
     .bloco01 h1{
         font-size: 46px ;
+        text-shadow: 2px 1px 2px #000000;
     }
     .bloco01 h3{
         font-size: 15px;

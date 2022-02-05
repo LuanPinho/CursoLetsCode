@@ -11,28 +11,26 @@
     --cor3: #F6F6F6;
     --cor4: #989898;
     --cor5: #3B3B3B;
-    --cor4t:#d6d5d5e7;
-    --cor5t:#777777a1;
-    
-    --font1: 'Alfa Slab One', cursive;
-    --font2: 'Anton', sans-serif;
-    --font3:'Rubik', sans-serif;
+    --cor4t:#000000e7;
+    --cor5t:#636363a1;
+
+    --font1:'Times New Roman', Times, serif;
+
 }
 html{
     min-width: 300px;
-    height: 100%;
+
 }
 body{
     margin-left: auto;
     margin-right: auto;
-    height: 100%;
+
 }
 main{
     margin-top: 60px;
-    height: 100%;
 }
 main > section{
-    height: calc(100% - 60px);
+    height: calc(100vh - 60px);
 }
 
 footer{
@@ -41,6 +39,7 @@ footer{
 }
 
 @media(max-width:600px) {
+
     nav > ul{
         grid-template-columns: auto auto;
     }
