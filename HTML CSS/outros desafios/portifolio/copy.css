@@ -66,6 +66,7 @@ nav ul{
     list-style: none;
     line-height: 25px;
     justify-items: end;
+
     padding-right: 5%;
 }
 nav > ul > li{
@@ -80,7 +81,26 @@ main{
 main > section{
     height: 600px;
 }
-
+main > .sec01{
+    display: flex;
+    align-items: center;
+    background-image: linear-gradient( to right, var(--cor4t), var(--cor5t)),url(imagens/imagem01.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    padding-left: 8%;
+}
+.sec01 h1{
+    font-size: 70px;
+    text-shadow: 2px 3px 6px #5e5e5eec;
+}
+.sec01 h3{
+    text-shadow: 2px 3px 6px #5e5e5eec;
+}
+.sec01 p{
+    max-width: 600px;
+    padding-right: 20px;
+}
 footer{
     height: 30px;
     background-color: violet;
@@ -93,19 +113,38 @@ footer{
     nav > ul{
         grid-template-columns: auto auto;
     }
+    main > .sec01 h1{
+        font-size: 46px ;
+    }
+    main > .sec01 h3{
+        font-size: 15px;
+    }
+    main > .sec01 p{
+        font-size: 14px;
+    }
 }
-
 @media(max-width:500px){
     main > section{
         height: 450px;
     }
+
     nav h1{
         font-size: 28px;
     }
     nav > ul> li{
         font-size: 12px;
     }
+
     main > section{
         height: 300px;
+    }
+    main > .sec01 h1{
+        font-size: 38px ;
+    }
+    main > .sec01 h3{
+        font-size: 12px;
+    }
+    main > .sec01 p{
+        font-size: 12px;
     }
 }

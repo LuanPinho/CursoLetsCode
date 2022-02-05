@@ -4,6 +4,9 @@
             margin: 0;
             box-sizing: border-box;
         }
+        html{
+            min-width: 1000px
+        }
         .menu{
             position: fixed;
             display: flex;
