@@ -12,14 +12,16 @@
 .bloco02-div{   
     display: flex;
     justify-content: space-around;
-    flex-wrap: wrap;
+    align-content: center;
+
+    margin-right: auto;
+    margin-left: auto;
+
     padding-top: 4vh;
     padding-bottom: 2vh;
 }
 .bloco02-div article{   
     background-color: antiquewhite;
-    
-    border-radius: 20px;
     min-width: 300px;
     max-width: 600px;
     min-height: 300px;
@@ -33,16 +35,18 @@
 }
 @media(max-width:600px) {
 
-    .bloco02-div{   
-        grid-template-columns: 1fr;
-    }
 }
 @media(max-width:950px) {
     .bloco02-div{   
         display: flex;
         flex-direction: column;
+        padding-left: 5%;
+        padding-right: 5%;
 
         padding-top: 4vh;
         padding-bottom: 2vh;
+    }
+    .bloco02-div article{  
+        min-width: 200px;
     }
 }
