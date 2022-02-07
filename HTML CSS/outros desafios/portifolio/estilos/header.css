@@ -31,20 +31,20 @@ nav a{
     color: var(--cor2);
     text-decoration: none;
 }
-nav a.active, ul a:hover{
+nav a.active, div a:hover{
     color: #ff6600;
     transition-duration: 0.3s;
     text-shadow: 0px 2px 10px #ff6600;
 }
-nav ul{
+nav div{
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto;
     list-style: none;
     line-height: 25px;
     justify-items: end;
     padding-right: 8%;
 }
-nav > ul > li{
+nav > div > a{
     letter-spacing: 2px;
 }
 .anime{
@@ -56,8 +56,21 @@ nav > ul > li{
     animation-iteration-count: infinite;
     -webkit-text-stroke-width: 0px;
 }
+@media(max-width:800px){
+    nav{
+        height: 90px;
+        align-items: right;
+    }
+    nav > div{
+        grid-template-columns: auto auto;
+    }
+    
+}
 @media(max-width:600px){
-    nav > ul{
+    nav{
+        height: 90px;
+    }
+    nav > div{
         grid-template-columns: auto auto;
     }
 }
@@ -66,7 +79,7 @@ nav > ul > li{
     nav h1{
         font-size: 28px;
     }
-    nav > ul> li{
+    nav > div > a{
         font-size: 12px;
     }
     .anime{

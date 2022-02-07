@@ -15,9 +15,8 @@
     --cor5t:#636363a1;
 
     --font1:'Times New Roman', Times, serif;
-
 }
-html{
+html{   
     min-width: 300px;
 }
 body{

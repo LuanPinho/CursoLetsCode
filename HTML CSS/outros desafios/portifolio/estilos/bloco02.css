@@ -11,15 +11,17 @@
 }
 .bloco02-div{   
     display: flex;
-    width: 90vw;
-    
+    width: 100%;
+    align-items: center;
+    justify-content: center;
 }
 .bloco02-div article{
     background-color: rgba(255, 255, 255, 0.87);
     width: 28vw;
+    height: 80%;
     max-width: 800px;
     border-radius: 10px;
-    padding-top: 2vh;
+    padding-top: 4vh;
     padding-left: 1vw;
     padding-right: 1vw;
     padding-bottom: 2vh;
@@ -45,7 +47,6 @@
     color: var(--cor2);
     font-size: 28px;
     font-family: var(--font1);
-    text-shadow: 3px 2px 2px #ff6600a2;
 }
 @media(max-width:1000px) {
     .bloco02-div{   
@@ -53,7 +54,7 @@
         flex-direction: column;
     }
     .bloco02-div article{  
-        width: 91vw;
+        width: 87vw;
         text-indent: none;
         margin-bottom: 2vh;
     }
