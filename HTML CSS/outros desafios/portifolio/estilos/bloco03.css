@@ -1,0 +1,13 @@
+.bloco03{
+    padding-bottom: 5vh;
+}
+.bloco03-div figure img{
+    height: 200px;
+    border-radius: 100%;
+}
+.bloco03-div div{
+    color: beige;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}

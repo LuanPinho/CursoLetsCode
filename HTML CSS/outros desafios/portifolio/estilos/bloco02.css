@@ -1,52 +1,74 @@
 .bloco02{
-    height: auto;
-    padding-bottom: 5vh;
-    padding-top: 5vh;
-
+    display: flex;
+    flex-direction: column;
     background-image: url(../imagens/bloco02.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    color: var(--cor2);;
+    padding-bottom: 2vh;
+    justify-content: center;
+    align-items: center;
 }
 .bloco02-div{   
     display: flex;
-    justify-content: space-around;
-    align-content: center;
-
-    margin-right: auto;
-    margin-left: auto;
-
-    padding-top: 4vh;
+    width: 90vw;
+    
+}
+.bloco02-div article{
+    background-color: rgba(255, 255, 255, 0.87);
+    width: 28vw;
+    max-width: 800px;
+    border-radius: 10px;
+    padding-top: 2vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
     padding-bottom: 2vh;
 }
-.bloco02-div article{   
-    background-color: antiquewhite;
-    min-width: 300px;
-    max-width: 600px;
-    min-height: 300px;
+.bloco02-div > article > h2{
+    padding-bottom: 2vh;
+}
+.bloco02-div p{
+    text-align: justify;
+    text-indent: 30px;
+    line-height: 18px;
+    margin-bottom: 10px;
 }
 .bloco02-div h2{
     text-align: center;
 }
 .bloco02 h1{
-    text-align: center;
+    display: flex;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cor1t);
+    color: var(--cor2);
+    font-size: 28px;
     font-family: var(--font1);
+    text-shadow: 3px 2px 2px #ff6600a2;
 }
-@media(max-width:600px) {
-
-}
-@media(max-width:950px) {
+@media(max-width:1000px) {
     .bloco02-div{   
         display: flex;
         flex-direction: column;
-        padding-left: 5%;
-        padding-right: 5%;
-
-        padding-top: 4vh;
-        padding-bottom: 2vh;
     }
     .bloco02-div article{  
-        min-width: 200px;
+        width: 91vw;
+        text-indent: none;
+        margin-bottom: 2vh;
+    }
+    .bloco02-div p{  
+        text-indent: 0px;
+    }
+}
+@media(max-width:500px) {
+    .bloco02 h1{
+        font-size: 20px;
+    }
+    .bloco02 h2{
+        font-size: 18px;
+    }
+    .bloco02 p{
+        font-size: 14px;
     }
 }

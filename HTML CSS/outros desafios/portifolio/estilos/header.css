@@ -19,6 +19,14 @@ nav h1{
     font-size: 38px;
     padding-left: 7%;
 }
+nav > h1 a{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    -webkit-text-stroke-width: 0.2px;
+    -webkit-text-stroke-color: var(--cor3);
+}
 nav a{
     color: var(--cor2);
     text-decoration: none;
@@ -39,7 +47,15 @@ nav ul{
 nav > ul > li{
     letter-spacing: 2px;
 }
-
+.anime{
+    color: var(--cor1);
+    font-size: 22px;
+    margin-right: 0.8vw;
+    animation-name: anime;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    -webkit-text-stroke-width: 0px;
+}
 @media(max-width:600px){
     nav > ul{
         grid-template-columns: auto auto;
@@ -53,4 +69,12 @@ nav > ul > li{
     nav > ul> li{
         font-size: 12px;
     }
+    .anime{
+        font-size: 16px;
+    }
+}
+@keyframes anime{
+    0% {color: var(--cor1);}
+    25% {color: var(--cor3);}
+    50% {color: var(--cor3);}
 }

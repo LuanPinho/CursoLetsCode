@@ -1,6 +1,5 @@
 .bloco01{
     display: flex;
-    columns: 1;
     flex-direction: column;
     justify-content: center;
     align-items: left;
@@ -9,7 +8,6 @@
     background-size: cover;
     background-position: right;
     padding-left: 8%;
-
     color: var(--cor2);
     text-shadow: 3px 2px 2px #000000;
 }
