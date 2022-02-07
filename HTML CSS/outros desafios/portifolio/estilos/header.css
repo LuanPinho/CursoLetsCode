@@ -47,9 +47,12 @@ nav div{
 nav > div > a{
     letter-spacing: 2px;
 }
+pre{
+    font-size: 14px;
+}
 .anime{
     color: var(--cor1);
-    font-size: 22px;
+    font-size: 30px;
     margin-right: 0.8vw;
     animation-name: anime;
     animation-duration: 1.5s;
@@ -83,7 +86,7 @@ nav > div > a{
         font-size: 12px;
     }
     .anime{
-        font-size: 16px;
+        font-size: 18px;
     }
 }
 @keyframes anime{
