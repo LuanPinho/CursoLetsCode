@@ -19,7 +19,8 @@ nav h1{
     font-size: 38px;
     padding-left: 7%;
 }
-nav > h1 a{
+nav > h1 > a{
+    width: min-content;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
@@ -30,13 +31,14 @@ nav > h1 a{
 nav a{
     color: var(--cor2);
     text-decoration: none;
+    width: auto;
 }
 nav a.active, div a:hover{
     color: #ff6600;
     transition-duration: 0.3s;
     text-shadow: 0px 2px 10px #ff6600;
 }
-nav div{
+nav > div{
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     list-style: none;
@@ -67,26 +69,29 @@ pre{
     nav > div{
         grid-template-columns: auto auto;
     }
-    
+    .obj{
+        grid-column-end: 3;
+    }
 }
+
 @media(max-width:600px){
     nav{
         height: 90px;
     }
     nav > div{
-        grid-template-columns: auto auto;
+        grid-template: auto auto, auto auto, auto;
     }
 }
 
 @media(max-width:500px){
-    nav h1{
+    nav > h1{
         font-size: 28px;
     }
     nav > div > a{
         font-size: 12px;
     }
     .anime{
-        font-size: 18px;
+        font-size: 20px;
     }
 }
 @keyframes anime{
