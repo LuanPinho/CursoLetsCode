@@ -8,10 +8,10 @@
     padding-bottom: 2vh;
     justify-content: center;
     align-items: center;
+    height: 100%;
 }
-.bloco02-div{   
+.bloco02-div{ 
     display: flex;
-    height: ;
     width: 100%;
     justify-content: space-around;
 }
@@ -47,6 +47,7 @@
     color: var(--cor2);
     font-size: 28px;
     font-family: var(--font1);
+    margin-bottom: 5vh;
 }
 @media(max-width:1000px) {
     .bloco02-div{   
