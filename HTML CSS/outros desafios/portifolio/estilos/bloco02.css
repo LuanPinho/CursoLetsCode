@@ -11,6 +11,7 @@
 }
 .bloco02-div{   
     display: flex;
+    height: ;
     width: 100%;
     justify-content: space-around;
 }
