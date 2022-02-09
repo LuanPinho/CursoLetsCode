@@ -1,8 +1,15 @@
-.bloco01{
+#home.bloco01{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: left;
+    align-items: center;
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.bloco01-div{
+    display: flex;
+    flex-direction: column;
     background-image: linear-gradient( to right, var(--cor4t) , var(--cor5t)),url(../imagens/bloco01.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -10,13 +17,19 @@
     padding-left: 8%;
     color: var(--cor2);
     text-shadow: 3px 2px 2px #000000;
+    height: 100%;
+    width: 90%;
+    border-radius: 10px;
+    margin-top: 2%;
+    justify-content: center;
 }
+
 .bloco01 h1{
     color: #ff6400;
     font-size: 70px;
 }
 .bloco01 p{
-    padding-right: 5%;
+   
     max-width: 500px;
 }
     
