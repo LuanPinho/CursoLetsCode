@@ -4,7 +4,9 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-left: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
 }
 .bloco02-div{ 
     display: flex;
@@ -14,12 +16,14 @@
     background-position: center;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100%;
 }
 .bloco02-div article{
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.897);
     width: 28vw;
-    min-height: 450px;
+    
     max-width: 800px;
     border-radius: 10px;
     padding-top: 4vh;
@@ -47,25 +51,23 @@
     color: var(--cor2);
     font-size: 28px;
     font-family: var(--font1);
-    margin-bottom: 5vh;
 }
 @media(max-width:1000px) {
-    #sobre.bloco02-div{   
+    .bloco02-div{   
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    #sobre.bloco02-div article{  
+    .bloco02-div article{  
         width: 87vw;
         text-indent: none;
         margin-bottom: 2vh;
-        min-height: 300px;
     }
-    #sobre.bloco02-div p{  
+    .bloco02-div p{  
         text-indent: 0px;
     }
 }
-@media(max-width:500px) {
+@media(max-width:580px) {
     #sobre.bloco02 h1{
         font-size: 20px;
     }
@@ -73,6 +75,6 @@
         font-size: 18px;
     }
     #sobre.bloco02 p{
-        font-size: 14px;
+        font-size: 12px;
     }
 }
