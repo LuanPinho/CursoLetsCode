@@ -15,6 +15,42 @@
     --cor5t:#636363a1;
 
     --font1:'Times New Roman', Times, serif;
+
+    --tFontA1: 70px;
+    --tFontA2: 40px;
+    --tFontA3: 24px;
+    --tFontA4: 16px;
+    --tFontA5: 14px;
+    --tFontA6: 12px;
+    
+    --tFontB1: calc(var(--tFontA1) - ((var(--tFontA1) * 0.3)));
+    --tFontB2: calc(var(--tFontA2) - ((var(--tFontA2) * 0.3)));
+    --tFontB3: calc(var(--tFontA3) - ((var(--tFontA3) * 0.3)));
+    --tFontB4: calc(var(--tFontA4) - ((var(--tFontA4) * 0.3)));
+    --tFontB5: calc(var(--tFontA5) - ((var(--tFontA5) * 0.3)));
+    --tFontB6: calc(var(--tFontA6) - ((var(--tFontA6) * 0.3)));
+
+    --hHeader1: 60px;
+
+    --tWidth1:800px;
+    --tWidth2:600px;
+    --tWidth3:500px;
+}
+
+@media(max-width:600px) {
+    :root{
+        --tFontA1: 49px;
+        --tFontA2: 28px;
+        --tFontA3: 17px;
+        --tFontA4: 11px;
+        --tFontA5: 10px;
+        --tFontA6: 8px;  
+    }
+}
+@media(max-width:800px) {
+    :root{
+        --hHeader1: 85px;
+    }
 }
 html{   
     min-width: 300px;
@@ -52,7 +88,4 @@ footer{
     align-items: center;
     justify-content: center;
     font-size: 14px;
-}
-@media(max-width:600px){
-
 }

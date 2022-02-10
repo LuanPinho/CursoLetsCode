@@ -2,7 +2,7 @@ header{
     background-color: rgb(0, 0, 0);
     position: fixed;
     top: 0;
-    height: 60px;
+    height: var(--hHeader1);
     width: 100%;
     box-shadow: 0px 0px 5px #ff6600a2;
 }
@@ -18,8 +18,8 @@ nav{
     align-items: center;
 }
 nav h1{
-    font-size: 38px;
-    padding-left: 7%;
+    font-size: VAR( --tFontA2);
+    padding-left: 4vw;
 }
 nav > h1 > a{
     width: min-content;
@@ -51,6 +51,7 @@ nav > div{
     padding-right: 4%;
 }
 nav > div > a{
+    font-size: VAR( --tFontA4);
     letter-spacing: 2px;
 }
 pre{
@@ -65,11 +66,7 @@ pre{
     animation-iteration-count: infinite;
     -webkit-text-stroke-width: 0px;
 }
-@media(max-width:700px){
-    nav{
-        height: 90px;
-        align-items: right;
-    }
+@media(max-width:800px){   
     nav > div{
         grid-template-columns: auto auto;
         line-height: 25px;
@@ -80,26 +77,8 @@ pre{
     }
 }
 
-@media(max-width:600px){
-    nav{
-        height: 70px;
-    }
-    nav > div{
-        line-height: 20px;
-        grid-template: auto auto, auto auto, auto;
-    }
-}
+@media(max-width: 500px){
 
-@media(max-width:580px){
-    nav > h1{
-        font-size: 25px;
-    }
-    nav > div > a{
-        font-size: 10px;
-    }
-    .anime{
-        font-size: 18px;
-    }
 }
 @keyframes anime{
     0% {color: var(--cor1);}

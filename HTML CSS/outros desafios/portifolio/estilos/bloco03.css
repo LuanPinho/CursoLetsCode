@@ -1,19 +1,32 @@
-#habilidades.bloco03{
+#habilidades{
+    padding-top: var(--hHeader1);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    width: 100%;
+}
+.bloco03{
+    background-image: linear-gradient( to right, var(--cor1t) , var(--cor1)),url(../imagens/skills.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 97%;
     margin-left: auto;
     margin-right: auto;
+    min-height: calc(100vh - 4px - 4vh - var(--hHeader1));
 }
 .bloco03-div{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-
+    border-radius: 10px;
+    min-height: 80vh;
 }
+
 .bloco03-div figure img{
     height: 200px;
     border-radius: 100%;

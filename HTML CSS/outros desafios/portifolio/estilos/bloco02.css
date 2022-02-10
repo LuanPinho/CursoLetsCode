@@ -1,48 +1,51 @@
-#sobre.bloco02{
+#sobre{
+    padding-top: var(--hHeader1);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    height: auto;
 }
-.bloco02-div{ 
-    display: flex;
-    background-image: url(../imagens/bloco02.jpg);
+.bloco02{
+    background-image: linear-gradient( to left, var(--cor1t) , var(--cor1)),url(../imagens/bloco02.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 97%;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: calc(100vh - 4px - 4vh - var(--hHeader1));
+}
+.bloco02-div{ 
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 100%;
+    border-radius: 10px;
+    min-height: 80vh;
 }
 .bloco02-div article{
-    justify-content: center;
     background-color: rgba(255, 255, 255, 0.897);
-    width: 28vw;
-    
-    max-width: 800px;
     border-radius: 10px;
     padding-top: 4vh;
     padding-left: 1vw;
     padding-right: 1vw;
     padding-bottom: 2vh;
+    width: 30%;
+    min-height: 70vh;
 }
-#sobre.bloco02-div > article > h2{
-    padding-bottom: 2vh;
-}
-#sobre.bloco02-div p{
+.bloco02-div p{
     text-align: justify;
     line-height: 18px;
     padding-top: 2vh;
+    max-height: 60vh;
 }
-#sobre.bloco02-div h2{
+.bloco02-div h2{
     text-align: center;
 }
-#sobre.bloco02 h1{
+.bloco02 h1{
     display: flex;
     height: 60px;
     align-items: center;
@@ -58,8 +61,10 @@
         flex-direction: column;
         align-items: center;
     }
-    .bloco02-div article{  
-        width: 87vw;
+
+    .bloco02-div article{
+        width: 90%;
+        min-height: auto;
         text-indent: none;
         margin-bottom: 2vh;
     }
