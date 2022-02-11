@@ -1,30 +1,43 @@
 #sobre{
     padding-top: var(--hHeader1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 .bloco02{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    height:  calc(100% - 2vh);
+}
+.bloco02 h1{
+    display: flex;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cor1t);
+    color: var(--cor2);
+    font-size: var(--tFontA3);
+    font-family: var(--font1);
+}
+.bloco02-div{
     background-image: linear-gradient( to left, var(--cor1t) , var(--cor1)),url(../imagens/bloco02.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    width: 97%;
-    margin-left: auto;
-    margin-right: auto;
-    min-height: calc(100vh - 4px - 4vh - var(--hHeader1));
-}
-.bloco02-div{ 
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+
+
+    height: calc(100% - 6vh);
+    width: 96%;
     border-radius: 10px;
-    min-height: 80vh;
+
 }
 .bloco02-div article{
     background-color: rgba(255, 255, 255, 0.897);
@@ -34,7 +47,8 @@
     padding-right: 1vw;
     padding-bottom: 2vh;
     width: 30%;
-    min-height: 70vh;
+    height: calc( 750px - 24vw);
+    min-height: 400px;
 }
 .bloco02-div p{
     text-align: justify;
@@ -45,26 +59,17 @@
 .bloco02-div h2{
     text-align: center;
 }
-.bloco02 h1{
-    display: flex;
-    height: 60px;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--cor1t);
-    color: var(--cor2);
-    font-size: 28px;
-    font-family: var(--font1);
-}
+
 @media(max-width:1000px) {
     .bloco02-div{   
-        display: flex;
         flex-direction: column;
         align-items: center;
     }
 
     .bloco02-div article{
+        height: auto;
         width: 90%;
-        min-height: auto;
+        min-height: 0px;
         text-indent: none;
         margin-bottom: 2vh;
     }

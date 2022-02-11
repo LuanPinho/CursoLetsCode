@@ -1,42 +1,76 @@
 #habilidades{
     padding-top: var(--hHeader1);
+}   
+.bloco03{
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    height:  calc(100% - 2vh);
 }
-.bloco03{
-    background-image: linear-gradient( to right, var(--cor1t) , var(--cor1)),url(../imagens/skills.jpg);
+.bloco03 h1{
+    display: flex;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cor1t);
+    color: var(--cor2);
+    font-size: var(--tFontA3);
+    font-family: var(--font1);
+}
+.bloco03-div{   
+   
+    box-shadow:  0px 0px 12px -5px var(--cor3);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+
+
+    height: calc(100% - 4vh);
+    width: 96%;
+    border-radius: 10px;
+}
+.hab{
+    color: rgb(255, 255, 255);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    border-radius: 10px;
+    width: 350px;
+    height: 150px;
+}
+.hab figure{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    width: 97%;
-    margin-left: auto;
-    margin-right: auto;
-    min-height: calc(100vh - 4px - 4vh - var(--hHeader1));
+
 }
-.bloco03-div{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    border-radius: 10px;
-    min-height: 80vh;
+.hab figure img{
+    height: 90px;
+    border-radius: 20%;
+}
+.hab ul{
+    list-style-type: none;
 }
 
-.bloco03-div figure img{
-    height: 200px;
-    border-radius: 100%;
+.tithab{
+    grid-column: 1/3;
+    margin-right: auto;
+    margin-left: auto;
 }
-.bloco03-div div{
-    color: beige;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-}
-.bloco03 h1{
-    color: var(--cor2);
+.tithab h3{
+    font-size: var(--tFontA4);  
 }
