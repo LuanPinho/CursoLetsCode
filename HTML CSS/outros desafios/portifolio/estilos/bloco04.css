@@ -1,5 +1,6 @@
 #contatos{
     padding-top: var(--hHeader1);
+    margin-top: calc(-1 * var(--hHeader1));
 }
 .bloco04{
     display: flex;
@@ -54,23 +55,57 @@
 }
 .redes{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     width: 90vw;
 }
 .rede{
-    display: flex;
-    flex-direction: row;
-    
+    display: grid;
+    grid-template-columns: auto auto;
     color: var(--cor2);
     justify-content: center;
     align-items: center;
     text-decoration: none;
+    margin-top: calc(3px + 2vh);
+    margin-left: calc(3px + 2vh);
+}
+#blocoEmail{
+    display: none;
 }
 .rede img{
-    align-items: center;
     background-color: white;
     height: 30px;
-    border-radius: 20%;
-    margin-right: 10%;
+    width: 30px;
+    border-radius: 10px;
+    margin-left: 0px;
 }
-
+.rede p{
+    margin-left: 5px;
+}
+.gform{
+    width: 90vw;
+    border-radius: 10px;
+    background-color: white;
+    overflow: hidden;
+}
+.gform > iframe{
+    overflow: hidden;
+    width: 100%;
+    height: 800px;
+}
+@media(max-width:500px) {
+    .gform > iframe{
+        height: 820px;
+    }
+}
+@media(max-width:440px) {
+    .gform {
+        display: none;
+    }
+    #blocoEmail{
+        display: grid;
+    }
+    .sair{
+        display: none;
+    }
+}
