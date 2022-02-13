@@ -35,7 +35,7 @@ nav a{
     text-decoration: none;
     width: auto;
 }
-nav a.active, div a:hover{
+nav a.active, nav div a:hover{
     color: #ff6600;
     transition-duration: 0.3s;
     text-shadow: 0px 2px 10px #ff6600;
