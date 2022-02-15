@@ -27,7 +27,7 @@
                 <a href="#sobre">Sobre</a>
                 <a href="#habilidades">Habilidades</a>
                 <!--<a href="#trabalhos">Trabalhos</a>-->
-                <a href="#contatos" class="obj" href="#">Contato</a>
+                <a href="#contatos" class="obj" href="#">Contatos</a>
             </div>
         </nav>
     </header>
@@ -118,7 +118,7 @@
                             <h3>Programação</h3>
                         </div>
                         <div>
-                            <figure><img src="imagens/program.jpg" alt="excel">
+                            <figure><img src="imagens/program.png" alt="excel">
                         </div>
                         <div>
                             <ul>
@@ -168,8 +168,6 @@
             <section class="bloco04">
                 <h1>CONTATOS</h1>
                 <div class="bloco04-div">
-                    <h3 class="sair">Redes Sociais</h3>
-                    <hr class="sair">
                     <div class="redes">
                         <a class="rede" href="https://www.linkedin.com/in/luanpinho/" target="_blank">
                             <img src="imagens/logo-linkedin.png" alt="Logo LinkedIn">
@@ -196,35 +194,16 @@
                         </a>
                     </div>
                     <br class="sair">
-                    <h3 class="sair">Entre em contato</h3>
-                    <hr class="sair">
                     <div class="gform">
-                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfZzGEohPQI9THtJbNjAN4Jh7h15iZRXhfgDgOZIo0kAgjxiQ/viewform?embedded=false" width="auto" height="auto" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe></div>
+
+                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfZzGEohPQI9THtJbNjAN4Jh7h15iZRXhfgDgOZIo0kAgjxiQ/viewform?embedded=true" width="auto" height="auto" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
                 </div>
-                <p class="linha">. . .</p>
             </section>
         </div>
         <footer>
             <p>Desenvolvido por Luan Pinho</p>
         </footer>
     </main>
-    <script>
-
-        const menuItens = document.querySelectorAll('.menuLinks a[href^="#"]');
-        menuItens.forEach(item => {
-            item.addEventListener('click',irpara);
-        });
-        function irpara(event){
-            event.preventDefault();
-            console.log(event.target);
-            const elemento = event.target;
-            const id = elemento.getAttribute('href');
-            const para = document.querySelector(id).offsetTop;
-            window.scroll({
-                top: para,
-                behavior: "smooth"
-            });
-        };
-    </script>
+    <script src="funcoes.js"></script>
 </body>
 </html>

@@ -56,7 +56,7 @@
 .redes{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     width: 90vw;
 }
 .rede{
@@ -91,7 +91,7 @@
 .gform > iframe{
     overflow: hidden;
     width: 100%;
-    height: 800px;
+    height: 810px;
 }
 @media(max-width:500px) {
     .gform > iframe{
