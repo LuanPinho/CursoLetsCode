@@ -22,11 +22,11 @@
                     <p class="anime">_</p>
                 </a>
             </h1>
-            <div>
-                <a onclick= irhome()>Home</a>
+            <div class="menuLinks">
+                <a href="#home">Home</a>
                 <a href="#sobre">Sobre</a>
                 <a href="#habilidades">Habilidades</a>
-                <a href="#trabalhos">Trabalhos</a>
+                <!--<a href="#trabalhos">Trabalhos</a>-->
                 <a href="#contatos" class="obj" href="#">Contato</a>
             </div>
         </nav>
@@ -209,14 +209,22 @@
         </footer>
     </main>
     <script>
-        function irhome(){
-            const p = document.querySelector("#home");
-            const posi= p.getBoundingClientRect();
-            window.scroll(posi.y)
-            console.log(posi)
 
-        }
-
+        const menuItens = document.querySelectorAll('.menuLinks a[href^="#"]');
+        menuItens.forEach(item => {
+            item.addEventListener('click',irpara);
+        });
+        function irpara(event){
+            event.preventDefault();
+            console.log(event.target);
+            const elemento = event.target;
+            const id = elemento.getAttribute('href');
+            const para = document.querySelector(id).offsetTop;
+            window.scroll({
+                top: para,
+                behavior: "smooth"
+            });
+        };
     </script>
 </body>
 </html>
