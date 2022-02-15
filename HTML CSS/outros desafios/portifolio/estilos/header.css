@@ -51,6 +51,7 @@ nav > div{
     padding-right: 4%;
 }
 nav > div > a{
+    cursor: pointer;
     font-size: VAR( --tFontA4);
     letter-spacing: 2px;
 }

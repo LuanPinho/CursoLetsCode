@@ -23,7 +23,7 @@
                 </a>
             </h1>
             <div>
-                <a href="#home">Home</a>
+                <a onclick= irhome()>Home</a>
                 <a href="#sobre">Sobre</a>
                 <a href="#habilidades">Habilidades</a>
                 <a href="#trabalhos">Trabalhos</a>
@@ -208,6 +208,15 @@
             <p>Desenvolvido por Luan Pinho</p>
         </footer>
     </main>
-    
+    <script>
+        function irhome(){
+            const p = document.querySelector("#home");
+            const posi= p.getBoundingClientRect();
+            window.scroll(posi.y)
+            console.log(posi)
+
+        }
+
+    </script>
 </body>
 </html>
