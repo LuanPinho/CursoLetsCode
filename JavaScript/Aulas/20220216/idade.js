@@ -26,16 +26,20 @@ function verifica(){
             break;
     }*/
     
-    if (idade <= '12') {
+    if (Number(idade) <= '0') {
+        comparador = 'Você é analfabeto';
+    } else if (Number(idade) <= '12') {
         comparador = 'Você é criança';
-    }else if((idade <= '17')){
+    }else if((Number(idade) <= '17')){
         comparador = 'Você é adolescente';
-    }else if((idade <= '64')){
+    }else if((Number(idade) <= '64')){
         comparador = 'Você é adulto';
-    }else if((idade >'64')){
+    }else if((Number(idade) <='110')){
         comparador = 'Você é idoso';
+    } else if((Number(idade) >'110')){
+        comparador = 'Você é uma múmia';
     }
-    
+
     /*if (idade >= '18') {
         comparador = 'Você é adulto(a)';
     }
