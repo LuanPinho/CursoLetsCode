@@ -27,17 +27,17 @@ function verifica(){
     }*/
     
     if (Number(idade) <= '0') {
-        comparador = 'Você é analfabeto';
+        comparador = 'Você é analfabeto?';
     } else if (Number(idade) <= '12') {
-        comparador = 'Você é criança';
+        comparador = 'Você é criança!';
     }else if((Number(idade) <= '17')){
-        comparador = 'Você é adolescente';
+        comparador = 'Você é adolescente!';
     }else if((Number(idade) <= '64')){
-        comparador = 'Você é adulto';
-    }else if((Number(idade) <='110')){
-        comparador = 'Você é idoso';
-    } else if((Number(idade) >'110')){
-        comparador = 'Você é uma múmia';
+        comparador = 'Você é adulto!';
+    }else if((Number(idade) <='120')){
+        comparador = 'Você é idoso!';
+    } else if((Number(idade) >'120')){
+        comparador = 'Você é uma múmia?';
     }
 
     /*if (idade >= '18') {

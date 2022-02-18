@@ -1,5 +1,7 @@
 function comparar(){
-    let idade =  document.getElementById('idade').value;
+    let valorComp =window.document.getElementById('comp').value;
+    let num1 =  document.getElementById('n1').value;
+    let num2 =  document.getElementById('n2').value;
     let comparador = null;
 
     switch (valorComp) {
@@ -26,25 +28,6 @@ function comparar(){
             break;
     }
     
-    /*if (valorComp==0) {
-        comparador = num1===num2;
-    };
-    if (valorComp==1) {
-        comparador = num1>num2;
-    };
-    if (valorComp==2) {
-        comparador = num1<num2;
-    };
-    if (valorComp==3) {
-        comparador = num1!=num2;
-    };
-    if (valorComp==4) {
-        comparador = num1<=num2;
-    };
-    if (valorComp==5) {
-        comparador = num1>=num2;
-    };*/
-
     document.getElementById('resp').value = comparador;
     console.log(valorComp,num1,num2,comparador);
 }
