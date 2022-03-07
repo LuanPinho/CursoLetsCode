@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Loja de Carros</h1>
+    <label>Modelo:</label> <input type="text" id="modelo" name="modelo"> <br><br>
+    <label>Ano:</label> <input type="text" id="ano" name="ano"> <br><br>
+    <label>Cor:</label> <input type="color" id="cor"> <br><br>
+    <label>Situação:</label> 
+    <select id="situacao">
+        <option value="Novo">Novo</option>
+        <option value="Usado">Usado</option>
+    </select>
+    <br><br>
+    <button onclick="adicionar()">Adicionar</button>
+
+    <table border="1" width="500px">
+        <thead>
+            <td ><strong>Modelo</strong></td>
+            <td><strong>Ano</strong></td>
+            <td><strong>Cor</strong></td>
+            <td><strong>Situação</strong></td>
+        </thead>
+        <tbody id="lista">
+            <tr">
+                <td colspan="4">nada</td> 
+            </tr>
+        </tbody>
+    </table>
+    <script src="script.js"></script>
+</body>
+</html>
