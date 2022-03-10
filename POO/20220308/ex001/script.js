@@ -15,9 +15,9 @@ let aluno = {
     setcurso: function(curso = ""){
         this.curso = curso;
     }
-}
+};
 
-console.log(aluno);
+console.log(aluno); 
 aluno.setnome ('João')
 aluno.setmtr('01234')
 aluno.setidade('14')
@@ -31,24 +31,24 @@ let ave = {
         return this.especie;
     }
 };
-console.log(ave.getespecie())
+console.log(ave.getespecie());
 
 let peixe = {
     especie: "Lambari"
 };
-console.log(ave.getespecie.bind(peixe)())
+console.log(ave.getespecie.bind(peixe)());
 
 function alunos(nome,idade,email,matricula,curso){
     this.nome = nome,
     this.idade = idade,
     this.email = email,
     this.matricula = matricula,
-    this.curso = curso,
+    this.curso = curso    
+};
 
-    this.getcurso = function () {
-        return this.curso;
-    }
-}
+alunos.prototype.getcurso = function () {
+    return this.curso;
+};
 
 let aluno01 = new alunos('Pedro','22','pedro@bol.com','02566','Português');
 
