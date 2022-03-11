@@ -13,6 +13,8 @@
         <h1>LOJA DO FUSCA DOIDO</h1>
     </header>
     <main>
+        <h3><strong>Cadastro de veículo</strong></h3>
+        <br>
         <div class="cadastro">
             <div>
                 <label>Marca: </label>
@@ -47,9 +49,32 @@
                 <label>Valor: </label>
                 <input class="campo" id="valor" type="number">
             </div>
-            <button onclick="cadastrar()">Salvar</button>
+
+            <div class="botoes">
+                <button onclick = "limpar()">Limpar</button>
+                <button onclick= "cadastrar()">Salvar</button>
+            </div>
         </div>
-        
+        <br><br><br>
+        <div>
+            <table class="tabela" border="1" width="600px">
+                <thead>
+                    <td>Item</td>
+                    <td>Marca</td>
+                    <td>Modelo</td>
+                    <td>Ano</td>
+                    <td>Cor</td>
+                    <td>Placa</td>
+                    <td>Tipo</td>
+                    <td>Valor</td>
+                </thead>
+                <tbody id="lista">
+                    <tr">
+                        <td colspan="8">lista vazia.</td> 
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </main>
     <footer></footer>
     <script src="script.js"></script>

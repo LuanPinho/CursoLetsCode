@@ -4,6 +4,7 @@ header{
 }
 main{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     border: auto;
@@ -13,16 +14,16 @@ main{
     flex-direction: column;
     width: 320px;
 }
-.cadastro div{
+.cadastro > div{
     display: flex;
     justify-content: space-between;
     height: 25px;
     margin-top: 3px;
     margin-bottom: 3px;
 }
-.cadastro button{
+.botoes > button{
     margin-top: 20px;
-    width: auto;
+    width: 40%;
     height: 35px;
 }
 .campo{
@@ -35,4 +36,8 @@ main{
     width: 154px;
     margin: 0px;
     padding: 0px;
+}
+.tabela{
+    width: 90vw;
+    max-width: 900px;
 }

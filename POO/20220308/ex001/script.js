@@ -36,7 +36,7 @@ console.log(ave.getespecie());
 let peixe = {
     especie: "Lambari"
 };
-console.log(ave.getespecie.bind(peixe)());
+console.log(ave.getespecie.bin d(peixe)());
 
 function alunos(nome,idade,email,matricula,curso){
     this.nome = nome,
