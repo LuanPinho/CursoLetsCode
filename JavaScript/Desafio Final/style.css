@@ -1,0 +1,38 @@
+header{
+    display: flex;
+    justify-content: center;
+}
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: auto;
+}
+.cadastro{
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+}
+.cadastro div{
+    display: flex;
+    justify-content: space-between;
+    height: 25px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+.cadastro button{
+    margin-top: 20px;
+    width: auto;
+    height: 35px;
+}
+.campo{
+    width: 150px;
+    margin: 0px;
+    padding: 0px;
+    border: auto;
+}
+.campo2{
+    width: 154px;
+    margin: 0px;
+    padding: 0px;
+}

@@ -5,11 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="Imagens/favicon.png" type="image/x-icon">
-    <title>Loja de Carros</title>
+    <title>Fusca doido</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>LOJA FUSCA DOIDO</h1>
+        <h1>LOJA DO FUSCA DOIDO</h1>
     </header>
+    <main>
+        <div class="cadastro">
+            <div>
+                <label>Marca: </label>
+                <input class="campo" id="marca" type="text">
+            </div>
+            
+            <div>
+                <label>Modelo: </label>
+                <input class="campo" id="modelo" type="text">
+            </div>
+            <div>
+                <label>Ano Fabricação: </label>
+                <input class="campo" id="ano" type="number">
+            </div>
+            <div>
+                <label>Cor predominante: </label>
+                <input class="campo2" id="cor" type="color">
+            </div>
+            <div>
+                <label>Placa: </label>
+                <input class="campo" id="placa" type="text">
+            </div>
+            <div>
+                <label>Tipo: </label>
+                <select class="campo2" id="tipo">
+                    <option value="zero">Zero KM</option>
+                    <option value="seminovo">Semi-Novo</option>
+                    <option value="usado">Usado</option>
+                </select>
+            </div>
+            <div>
+                <label>Valor: </label>
+                <input class="campo" id="valor" type="number">
+            </div>
+            <button onclick="cadastrar()">Salvar</button>
+        </div>
+        
+    </main>
+    <footer></footer>
+    <script src="script.js"></script>
 </body>
 </html>
