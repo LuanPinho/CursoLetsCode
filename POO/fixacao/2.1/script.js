@@ -15,49 +15,46 @@ class cnh{
 let msg = '';
 function novacnh(nome,pais,idade,categ ='') {
     var categs = ['A', 'B', 'C', 'D', 'E', 'AB', 'AC', 'AD', 'AE'];
-    switch (pais.toUpperCase()) {
-        case 'BR':
-            if (idade < 18){
-                msg = 'A idade deve ser maior ou igual a 18 anos.';
-            }else{
-                if (categ != ''){
-                    if(!( categs.indexOf(categ.toUpperCase()) >=0 )){
-                        msg = `A categoria é ${categ.toUpperCase()} inválida.`;
-                    }
-                }else{
-                    msg = `No Brasil, a categoria é obrigatótia.`;
-                }
-            }
-            break;
     
-        case 'US':
-            if (idade < 16){
-                msg = 'A idade deve ser maior ou igual a 16 anos.';
+    if (pais.toUpperCase() == 'BR'){
+        if (idade < 18){
+            msg = 'A idade deve ser maior ou igual a 18 anos.';
+        }else{
+            if (categ != ''){
+                if(!( categs.indexOf(categ.toUpperCase()) >=0 )){
+                    msg = `A categoria é ${categ.toUpperCase()} inválida.`;
+                }
+            }else{
+                msg = `No Brasil, a categoria é obrigatótia.`;
             }
-            break;
-
-        case 'CA':
-            if (idade < 21){
-                msg = 'A idade deve ser maior ou igual a 21 anos.';
-            }
-            break;
-
-        default: 
-            if (idade < 18){
-                msg = 'A idade deve ser maior ou igual a 18 anos.';
-            }
-            break;
+        }
     }
 
+    if ((pais.toUpperCase() == 'US') ||  (pais.toUpperCase() == 'CA')){
+        if (idade < 16){
+            msg = 'A idade deve ser maior ou igual a 16 anos.';
+        }
+    }
+
+    if ((pais.toUpperCase() == 'RU') ||  (pais.toUpperCase() == 'CH')){
+        if (idade < 21){
+            msg = 'A idade deve ser maior ou igual a 21 anos.';
+        }
+    }
+
+
     if (msg == ''){
-        return new cnh(nome,pais,idade,categ);
+        if (idade < 18){
+            msg = 'A idade deve ser maior ou igual a 18 anos.';
+        }else{
+            return new cnh(nome,pais,idade,categ);
+        }
     } else {
         return msg;
     }
-    
 }
 
-var cnh2 = novacnh('roberta','br','18','B') 
+var cnh2 = novacnh('roberta','CH','18','B') 
 
 console.log(cnh2)
 
