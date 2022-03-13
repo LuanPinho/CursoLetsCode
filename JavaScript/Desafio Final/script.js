@@ -1,28 +1,28 @@
 let item = 1;
 let carros = [];
 
-let marca = document.getElementById('marca').value;
-let modelo = document.getElementById('modelo').value;
-let ano = document.getElementById('ano').value;
-let cor = document.getElementById('cor').value;
-let placa = document.getElementById('placa').value;
-let tipo = document.getElementById('tipo').value;
-let valor = document.getElementById('valor').value;
-let lista = document.getElementById("lista").value;
+const marca = document.getElementById('marca');
+const modelo = document.getElementById('modelo');
+const ano = document.getElementById('ano');
+const cor = document.getElementById('cor');
+const placa = document.getElementById('placa');
+const tipo = document.getElementById('tipo');
+const valor = document.getElementById('valor');
+const lista = document.getElementById("lista");
 
-function carro(item,marca,modelo,ano,cor,placa,tipo,valor) {
+function carro (item,marca,modelo,ano,cor,placa,tipo,valor) {
     this.item = item;
-    this.marca = marca;
-    this.modelo = modelo;
-    this.ano = ano;
-    this.cor = cor;
-    this.placa = placa;
-    this.tipo = tipo;
-    this.valor = valor
+    this.marca = marca.value;
+    this.modelo = modelo.value;
+    this.ano = ano.value;
+    this.cor = cor.value;
+    this.placa = placa.value;
+    this.tipo = tipo.value;
+    this.valor = valor.value
 }
 
 function cadastrar() {
-    let carro1 = new carro (item, marca.value, modelo, ano, cor, placa, tipo, valor);
+    let carro1 = new carro (item, marca, modelo, ano, cor, placa, tipo, valor);
     
     carros.push(carro1);
     lista.innerHTML = carros.map(function(carro1){
@@ -37,19 +37,26 @@ function cadastrar() {
             <td>${carro1.valor}</td>
         </tr>`
     }).join("");
-    console.log(carros)
+    console.log(carro1)
     item++;
 
 }
 
 function limpar() {
-    marca.innerText = '';
-    modelo.innerText = '';
-    ano.innerText = '';
-    cor.innerText = '';
-    placa.innerText = '';
-    tipo.innerText = '';
-    valor.innerText = '';
+    marca.value = '';
+    modelo.value = '';
+    ano.value = '';
+    cor.value = '#000000';
+    placa.value = '';
+    tipo.value = 'zero';
+    valor.value = '';
    
     console.log(marca.value)
 }
+function zeraLista() {
+    carros.value = '' 
+    lista.innerHTML =  
+    `<tr">
+        <td colspan="8">lista vazia.</td>
+    </tr>`;
+};
