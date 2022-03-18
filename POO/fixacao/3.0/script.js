@@ -115,3 +115,72 @@ console.log(sm.getpassos())
 
 // Construa uma classe Veiculo que tem como propriedades rodas (1 a n), usaCombustivel (true/false), uma classe Carro (tipoDecombustivel: 'gasolina', 'álcool', 'flex') que herda de Veiculo e Bicicleta (infantil: true/false - tem que ter mais que 2 rodas) que também herda as características de Veiculo.
 
+class veiculo {
+    constructor(usaComb = true,rodas){
+        this._usaComb = this.autoSetTrue(this._usaComb,usaComb);
+        this._rodas = rodas;
+    }
+    autoSetTrue(par,valor){   
+        if (valor == true || valor == false){
+            return par = valor
+        } else{
+            console.log(`Parametro "usaComb" inválido, deve ser "true" ou "false".`) 
+            if (!(par == true || par == false)){
+                return par = true
+            }
+        }
+    }
+    autoSetFalse(par,valor){   
+        if (valor == true || valor == false){
+            return par = valor
+        } else{
+            console.log(`Parametro "usaComb" inválido, deve ser "true" ou "false".`) 
+            if (!(par == true || par == false)){
+                return par = false
+            }
+        }
+    }
+
+    set usaComb (valor) {
+        if (valor == true || valor == false){
+            this._usaComb = valor
+        } else{
+            console.log(`Parametro "usaComb" inválido, deve ser "true" ou "false".`) 
+        }
+    }
+}
+
+class carro extends veiculo{
+    constructor(tipoCombust){
+        super()
+        this._tipoCombust = tipoCombust;
+        this._rodas = 4;
+        this._usaComb = true;
+    }
+}
+
+
+class bicicleta extends veiculo{
+    constructor(rodas,infantil = false){
+        super(rodas) 
+        this._usaComb = false
+        this._rodas = this.setRodas(this._rodas,rodas)
+        this._infanil =  this.autoSetFalse(this._infanil,infantil);
+    }
+
+    setRodas (par,valor){
+        if(parseInt(valor) >= 2){
+            return par = valor;
+        }else{
+            return par = 2;
+        }
+    }
+}
+carro1 = new carro('gas')
+carro1.usaComb = false
+console.log(carro1)
+
+
+bike = new bicicleta (4,true)
+
+console.log(bike)
