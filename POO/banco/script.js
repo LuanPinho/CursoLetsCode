@@ -17,7 +17,6 @@ class Conta{
         this.agencia = agencia;
         this.#saldo = saldo;
         this.leasing = leasing;
-
     }
     set deposito(i){
         this.#saldo += i;
@@ -58,10 +57,9 @@ class Conta{
                 data:`${data.getDate()}/${data.getMonth()}/${data.getFullYear()}`
               }
             lancamento.push(objeto)
-            console.log(this.#saldo)
-            return `Seu saldo é ${this.#saldo} e foi sacado ${valorDoSaque}`
+            console.log(`Seu saldo é ${this.#saldo} e foi sacado ${valorDoSaque}`)
         } else {
-            return ("Não é possivel sacar")
+            console.log("Não é possivel sacar")
         }
     }
 
@@ -82,24 +80,24 @@ class Conta{
         var doisDias = (valorBoleto + valorBoleto * 0.025).toFixed(2).replace('.', ',');
         var composto = valorBoleto + (valorBoleto * (1.03 * (diasAtraso * -1 / 100)));
 
-            if(diasAtraso <= -3 && (composto <= this.#saldo || this.leasing)){
-                this.#saldo = this.#saldo - parseFloat(composto);
-                objeto.valor = parseFloat(composto);
-                lancamento.push(objetoBoleto);
-            } else if (diasAtraso <= -2 && (doisDias <= this.#saldo || this.leasing)){
-                this.#saldo = this.#saldo - parseFloat(doisDias);
-                objeto.valor = parseFloat(doisDias);
-                lancamento.push(objetoBoleto);
-            } else if (diasAtraso <= -1 && (umDia <= this.#saldo || this.leasing)){
-                this.#saldo = this.#saldo - parseFloat(umDia);
-                objeto.valor = parseFloat(umDia);
-                lancamento.push(objetoBoleto);
-            } else if (valorBoleto <= this.#saldo || this.leasing){
-                this.#saldo = this.#saldo - valorBoleto;
-                lancamento.push(objetoBoleto);
-            } else {
-                return "Sem Saldo";
-            }
+        if(diasAtraso <= -3 && (composto <= this.#saldo || this.leasing)){
+            this.#saldo = this.#saldo - parseFloat(composto);
+            objeto.valor = parseFloat(composto);
+            lancamento.push(objetoBoleto);
+        } else if (diasAtraso <= -2 && (doisDias <= this.#saldo || this.leasing)){
+            this.#saldo = this.#saldo - parseFloat(doisDias);
+            objeto.valor = parseFloat(doisDias);
+            lancamento.push(objetoBoleto);
+        } else if (diasAtraso <= -1 && (umDia <= this.#saldo || this.leasing)){
+            this.#saldo = this.#saldo - parseFloat(umDia);
+            objeto.valor = parseFloat(umDia);
+            lancamento.push(objetoBoleto);
+        } else if (valorBoleto <= this.#saldo || this.leasing){
+            this.#saldo = this.#saldo - valorBoleto;
+            lancamento.push(objetoBoleto);
+        } else {
+            console.log("Sem Saldo");
+        }
     }
 }
 
@@ -119,7 +117,7 @@ class PF extends Conta{
     }
     // acesso individual a propriedade privada "CPF"
     get CPF(){
-        return `${this.#CPF}`
+        return this.#CPF
     }
     novodia(){
         this.calcLeasing()
@@ -147,7 +145,7 @@ class PJ extends Conta{
 
     // acesso individual a propriedade privada "CNPJ"
     get CNPJ(){
-        return `${this.#CNPJ}`
+        return this.#CNPJ
     }
     novodia(){
         this.calcLeasing()
@@ -164,7 +162,7 @@ const cliente = new PF("Augusto", 123456,'12355-3', "703",4000,true);
 console.log(cliente)
 // cliente.saque(5000,true);
 cliente.pagarBoleto(4100,'2022/03/10')
-
+cliente.saque(200)
 // console.log(cliente.saldo)
 cliente.novodia()
 
