@@ -1,13 +1,7 @@
 let lancamentos = [];
 let dthj = new Date()
 let dthoje =  dthj.toLocaleDateString(); 
-// let objeto = {
-//     agencia:"",
-//     conta:"",
-//     valor:"",
-//     tipo:"",
-//     data:""
-// }
+
 function validaData(data) {
     if (data.length != 10) {
         console.log('A data tem que possuir 10 caracteres. Deve ser dd/mm/aaaa.')
@@ -65,9 +59,10 @@ class Conta{
         this.extrato = [];
 
         this.objeto = {
+            data: dthoje,
             tipo: 'Saldo inicial',
             valor: saldo,
-            data: dthoje
+            saldo: saldo
         }
         this.extrato.push(this.objeto)
     }
@@ -84,9 +79,10 @@ class Conta{
     getExtrato(){
         var ext = this.extrato
         ext.push({
+            data: dthoje,
             tipo: 'SALDO ATUAL',
-            valor: this.saldo,
-            data:dthoje
+            valor: "-",
+            saldo: parseFloat(this.#saldo.toFixed(2))
         })
         console.table(ext)
     }
@@ -94,16 +90,26 @@ class Conta{
     getExtratoLeasing(){
 
     }
-
+    deposito(valor){
+        this.objeto = {
+            tipo:'Transferência',
+            valor: parseFloat(valor.toFixed(2)),
+            data:dthoje,
+            saldo: parseFloat(this.#saldo.toFixed(2))
+        }
+        this.extrato.push(this.objeto)
+        this.#saldo += parseFloat(valor.toFixed(2))
+    }
     // métodos
     transferencia (valorDaTranferencia){
         if (valorDaTranferencia <= this.#saldo || this.leasing){
             this.objeto = {
                 tipo:'Transferência',
-                valor:valorDaTranferencia * (-1),
-                data:dthoje
+                valor: parseFloat(valorDaTranferencia.toFixed(2)) * (-1),
+                data:dthoje,
+                saldo: parseFloat(this.#saldo.toFixed(2))
             }
-            this.#saldo = this.#saldo - valorDaTranferencia;
+            this.#saldo = this.#saldo - parseFloat(valorDaTranferencia.toFixed(2));
             this.extrato.push(this.objeto)
             return `Transferência realizada com sucesso. Saldo atual: ${this.#saldo}`
         } else {
@@ -113,11 +119,12 @@ class Conta{
 
     saque (valorDoSaque){
         if (valorDoSaque <= this.#saldo || this.leasing){
-            this.#saldo -= valorDoSaque;
+            this.#saldo -=  parseFloat(valorDoSaque.toFixed(2));
             this.objeto = {
                 tipo:'Saque',
-                valor:valorDoSaque * (-1),
-                data:dthoje
+                valor: parseFloat(valorDoSaque.toFixed(2)) * (-1),
+                data:dthoje,
+                saldo: parseFloat(this.#saldo.toFixed(2))
             }
             this.extrato.push(this.objeto)
             return console.log(`Saque realizado com sucesso. Saldo atual: ${this.#saldo}`)
@@ -130,50 +137,54 @@ class Conta{
         if (!(validaData(vencimento))){
             return console.log('Não é possível pagar o boleto. Data inválida')
         } 
-        this.objeto = {
-            tipo:'Pag Boleto',
-            valor:(valorBoleto * (-1)),
-            data:dthoje
-        }
-        var diff = vencimento - dthoje;
-        var diasAtraso = ((diff / 86400000) + 1).toFixed();
+        var dia = parseInt(vencimento.substring(0,2));
+        var mes = parseInt(vencimento.substring(3,5));
+        var ano = parseInt(vencimento.substring(6,10));
+        var venc = new Date(ano,(mes-1),dia)
+        var diasAtraso = parseInt((dthj - venc)/125035239);
         var umDia = (valorBoleto * 1.01).toFixed(2).replace('.', ',');
         var doisDias = (valorBoleto + valorBoleto * 0.025).toFixed(2).replace('.', ',');
-        var composto = valorBoleto + (valorBoleto * (1.03 * (diasAtraso * -1 / 100)));
+        var composto = valorBoleto + (valorBoleto * (1.03 * (diasAtraso / 100)));
 
-        if(diasAtraso <= -3 && (composto <= this.#saldo || this.leasing)){
-            this.#saldo -= parseFloat(composto);
-            objeto.valor = parseFloat(composto);
-            this.extrato.push(this.objeto);
-        } else if (diasAtraso <= -2 && (doisDias <= this.#saldo || this.leasing)){
-            this.#saldo -= parseFloat(doisDias);
-            objeto.valor = parseFloat(doisDias);
-            this.extrato.push(this.objeto);
-        } else if (diasAtraso <= -1 && (umDia <= this.#saldo || this.leasing)){
-            this.#saldo -= parseFloat(umDia);
-            objeto.valor = parseFloat(umDia);
-            this.extrato.push(this.objeto);
+        //if (diasAtraso >=1 )
+
+        if(diasAtraso >= 3 && (composto <= this.#saldo || this.leasing)){
+            this.objeto.valor = (parseFloat(composto.toFixed(2)) * (-1));
+        } else if (diasAtraso >= 2 && (doisDias <= this.#saldo || this.leasing)){
+            this.objeto.valor = (parseFloat(doisDias.toFixed(2)) * (-1));
+        } else if (diasAtraso = -1 && (umDia <= this.#saldo || this.leasing)){
+            this.objeto.valor = (parseFloat(umDia.toFixed(2)) * (-1));
         } else if (valorBoleto <= this.#saldo || this.leasing){
-            this.#saldo -= valorBoleto;
-            this.extrato.push(this.objeto);
+            this.objeto.valor = (parseFloat(valorBoleto.toFixed(2)) * (-1));
         } else {
-            console.log("Sem Saldo");
+            return console.log("Saldo insuficiente.");
+        }
+        this.#saldo -= parseFloat(this.objeto.valor);
+        this.objeto = {
+            tipo:'Pag Boleto',
+            data:dthoje,
+            saldo: parseFloat(this.#saldo.toFixed(2))
+        }
+
+        this.extrato.push(this.objeto);
+    }
+    novodia(dias = 1){
+        for (let index = 1; index <= dias; index++) {
+            dthj = new Date(dthj.getTime() + (24 * 60 * 60 * 1000)); 
+            dthoje = dthj.toLocaleDateString()
+            this.calcLeasing()
         }
     }
-    novodia(){
-        dthj = new Date(dthj.getTime() + (24 * 60 * 60 * 1000)); 
-        dthoje = dthj.toLocaleDateString()
-        this.calcLeasing()
-    }
     calcLeasing (){
-        if (this.saldo < 0 ){
-            var valor = this.saldo * this.txLeasing 
+        if (this.#saldo < 0 ){
+            var valor = this.#saldo * this.txLeasing
             this.objeto = {
                 tipo:'Juros Cheque Especial',
-                valor: valor,
-                data:dthoje
+                valor: parseFloat(valor.toFixed(2)),
+                data: dthoje,
+                saldo: parseFloat(this.#saldo.toFixed(2))
             }
-            this.saldo += valor;
+            this.#saldo += parseFloat(valor.toFixed(2));
             this.extrato.push(this.objeto)
         }
     }
@@ -187,7 +198,7 @@ class PF extends Conta{
     constructor(nome, cpf, conta, agencia, saldo,leasing){
       super (nome,conta, agencia, saldo,leasing)
       this.#CPF = cpf;
-      this.txLeasing = 0.001;
+      this.txLeasing = 0.01;
     }
 
     // método dados da pessoa física
@@ -207,7 +218,7 @@ class PJ extends Conta{
     constructor(nome,cnpj, conta, agencia, saldo,leasing){
         super (nome,conta, agencia, saldo,leasing)
         this.#CNPJ = cnpj;
-        this.txLeasing = 0.0005;
+        this.txLeasing = 0.005;
     }
     // método dados de pessoa Jurídica
     get dadosPj(){
@@ -220,19 +231,23 @@ class PJ extends Conta{
     }
 }
 
-const cliente = new PF("Augusto", 123456,'12355-3', "703",190,true);
+const cliente = new PF("Augusto", 123456,'12355-3', "703",500,true);
 const vivo = new PJ ('Vivo',)
 console.log(cliente)
 // cliente.saque(5000,true);
 cliente.saque(200)
+cliente.pagarBoleto(600,'10/03/2022')
 // console.log(cliente.saldo)
-cliente.novodia()
+cliente.novodia(5)
+cliente.deposito(200)
 // cliente.saque(200);
 // cliente.transferencia(50);
 cliente.pagarBoleto(100, "29/01/2022");
 cliente.pagarBoleto(250, "29/01/2022");
 // cliente.pagarBoleto(500, "2022/03/10");
 // cliente.pagarBoleto(75, "2022/03/23");
+cliente.novodia(2)
+cliente.deposito(1000)
 cliente.getExtrato()
 
 
