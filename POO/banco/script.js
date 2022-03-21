@@ -66,12 +66,12 @@ class Conta{
         }
         this.extrato.push(this.objeto)
     }
-    set deposito(i){
-        this.#saldo += i;
+    set deposito(valor){
+        this.#saldo += parseFloat(valor.toFixed(2));
     }
-    set saldo(saldo){
-        this.#saldo = saldo;
-    }
+    // set saldo(saldo){
+    //     this.#saldo = saldo;
+    // }
     get saldo(){
         return this.#saldo;
     }
@@ -92,7 +92,7 @@ class Conta{
     }
     deposito(valor){
         this.objeto = {
-            tipo:'Transferência',
+            tipo:'Depósito',
             valor: parseFloat(valor.toFixed(2)),
             data:dthoje,
             saldo: parseFloat(this.#saldo.toFixed(2))
@@ -101,7 +101,7 @@ class Conta{
         this.#saldo += parseFloat(valor.toFixed(2))
     }
     // métodos
-    transferencia (valorDaTranferencia){
+    transferencia (valorDaTranferencia, agenciaDestino,contaDestino){
         if (valorDaTranferencia <= this.#saldo || this.leasing){
             this.objeto = {
                 tipo:'Transferência',
@@ -109,11 +109,11 @@ class Conta{
                 data:dthoje,
                 saldo: parseFloat(this.#saldo.toFixed(2))
             }
-            this.#saldo = this.#saldo - parseFloat(valorDaTranferencia.toFixed(2));
+            this.#saldo = parseFloat(this.#saldo.toFixed(2)) - parseFloat(valorDaTranferencia.toFixed(2));
             this.extrato.push(this.objeto)
-            return `Transferência realizada com sucesso. Saldo atual: ${this.#saldo}`
+            console.log(`Transferência realizada com sucesso. Saldo atual: ${this.#saldo}`)
         } else {
-            return ("Seu saldo é insuficiente para essa operação. Você pode ativar a função Leasing com seu gerente.")
+            console.log("Seu saldo é insuficiente para essa operação. Você pode ativar a função Leasing com seu gerente.")
         }
     }
 
@@ -127,7 +127,7 @@ class Conta{
                 saldo: parseFloat(this.#saldo.toFixed(2))
             }
             this.extrato.push(this.objeto)
-            return console.log(`Saque realizado com sucesso. Saldo atual: ${this.#saldo}`)
+            console.log(`Saque realizado com sucesso. Saldo atual: ${this.#saldo}`)
         } else {
             console.log("Não é possivel sacar")
         }
@@ -140,29 +140,34 @@ class Conta{
         var dia = parseInt(vencimento.substring(0,2));
         var mes = parseInt(vencimento.substring(3,5));
         var ano = parseInt(vencimento.substring(6,10));
-        var venc = new Date(ano,(mes-1),dia)
-        var diasAtraso = parseInt((dthj - venc)/125035239);
-        var umDia = (valorBoleto * 1.01).toFixed(2).replace('.', ',');
-        var doisDias = (valorBoleto + valorBoleto * 0.025).toFixed(2).replace('.', ',');
-        var composto = valorBoleto + (valorBoleto * (1.03 * (diasAtraso / 100)));
+        var venc = new Date(ano,(mes-1),dia);
 
-        //if (diasAtraso >=1 )
 
-        if(diasAtraso >= 3 && (composto <= this.#saldo || this.leasing)){
-            this.objeto.valor = (parseFloat(composto.toFixed(2)) * (-1));
-        } else if (diasAtraso >= 2 && (doisDias <= this.#saldo || this.leasing)){
-            this.objeto.valor = (parseFloat(doisDias.toFixed(2)) * (-1));
-        } else if (diasAtraso = -1 && (umDia <= this.#saldo || this.leasing)){
-            this.objeto.valor = (parseFloat(umDia.toFixed(2)) * (-1));
-        } else if (valorBoleto <= this.#saldo || this.leasing){
-            this.objeto.valor = (parseFloat(valorBoleto.toFixed(2)) * (-1));
-        } else {
-            return console.log("Saldo insuficiente.");
+        function calcjuros(dias = 0) {
+            if (dias < 1) {
+                return 0.00;
+            }else if (dias == 1) {
+                return parseFloat((valorBoleto * 1.01).toFixed(2));
+            }else if (dias == 2) {
+                return parseFloat((valorBoleto * 1.025).toFixed(2));
+            } else{
+                return ((valorBoleto * 0.03) * dias);
+            }
         }
-        this.#saldo -= parseFloat(this.objeto.valor);
+
+
+        var diasAtraso = Math.abs(dthj.getTime() - venc.getTime());
+        diasAtraso = Math.ceil(diasAtraso / (1000 * 60 * 60 * 24)) - 1;
+        var multa = parseFloat(valorBoleto) * 0.1;
+        var totjuros = parseFloat(calcjuros(diasAtraso).toFixed(2))
+       
+        var valTot = parseFloat(valorBoleto) + parseFloat(multa) + parseFloat(totjuros)
+
+        this.#saldo -= parseFloat((valTot).toFixed(2));
         this.objeto = {
             tipo:'Pag Boleto',
             data:dthoje,
+            valor: parseFloat(valTot.toFixed(2) * -1),
             saldo: parseFloat(this.#saldo.toFixed(2))
         }
 
@@ -177,14 +182,14 @@ class Conta{
     }
     calcLeasing (){
         if (this.#saldo < 0 ){
-            var valor = this.#saldo * this.txLeasing
+            var valor = parseFloat((this.#saldo * this.txLeasing).toFixed(2));
             this.objeto = {
                 tipo:'Juros Cheque Especial',
-                valor: parseFloat(valor.toFixed(2)),
+                valor: valor,
                 data: dthoje,
                 saldo: parseFloat(this.#saldo.toFixed(2))
             }
-            this.#saldo += parseFloat(valor.toFixed(2));
+            this.#saldo += valor;
             this.extrato.push(this.objeto)
         }
     }
@@ -232,18 +237,18 @@ class PJ extends Conta{
 }
 
 const cliente = new PF("Augusto", 123456,'12355-3', "703",500,true);
-const vivo = new PJ ('Vivo',)
+//const vivo = new PJ ('Vivo',)
 console.log(cliente)
 // cliente.saque(5000,true);
 cliente.saque(200)
-cliente.pagarBoleto(600,'10/03/2022')
+cliente.pagarBoleto(597.78,'21/02/2022')
 // console.log(cliente.saldo)
-cliente.novodia(5)
+cliente.novodia(2)
 cliente.deposito(200)
 // cliente.saque(200);
-// cliente.transferencia(50);
-cliente.pagarBoleto(100, "29/01/2022");
-cliente.pagarBoleto(250, "29/01/2022");
+cliente.transferencia(50);
+// cliente.pagarBoleto(100, "29/01/2022");
+// cliente.pagarBoleto(250, "29/01/2022");
 // cliente.pagarBoleto(500, "2022/03/10");
 // cliente.pagarBoleto(75, "2022/03/23");
 cliente.novodia(2)
